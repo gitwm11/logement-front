@@ -1,0 +1,68 @@
+
+
+<mat-toolbar color="warn">
+
+  <img src="assets/img/logo.png" style="width: 50px;">
+  <h4 style="color: aquamarine">Logements APP</h4>
+  <button mat-icon-button (click)="myDrawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span style="flex:auto"></span>
+  <button mat-button routerLink="/admin/home">Home</button>
+  <button mat-button routerLink="/admin/locataires">Locataires</button>
+  <button mat-button [matMenuTriggerFor]="logementsMenu" routerLink="/Logements">
+
+    <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
+    Logements
+
+  </button>
+  <mat-menu #logementsMenu>
+    <button mat-menu-item routerLink="/admin/ajouterLogement">Ajouter Logement</button>
+    <button mat-menu-item routerLink="/admin/modifierLogement">Modifier Logement</button>
+  </mat-menu>
+
+  <button mat-button *ngIf="authService.isAuthenticated">
+    {{authService.username}}
+  </button>
+  <button mat-raised-button color="light" (click)="logout()">
+
+    Logout
+
+  </button>
+
+
+</mat-toolbar>
+
+<mat-drawer-container>
+  <mat-drawer #myDrawer opened="true" mode="side" position="start">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/dashboard">
+          <mat-icon>dashboard</mat-icon>
+          Admin Dashboard
+
+        </button>
+
+      </mat-list-item>
+    <mat-list-item>
+      <button mat-button routerLink="/admin/locataires">
+        <mat-icon>perm_contact_calendar</mat-icon>
+        Locataires
+
+      </button>
+
+    </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/Logements">
+          <mat-icon>domain</mat-icon>
+          Logements</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div style="min-height: 600px">
+    <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

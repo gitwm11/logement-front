@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html>
+<body bgcolor="#FF5733" >
+
+
+<div class="container" >
+  <img src="assets/img/logo.png" style="width: 200px;margin-left: 50rem;margin-bottom: -15rem">
+
+  <mat-card class="login-form" [formGroup]="loginForm" style="margin-top: 200px">
+    <mat-card-header>
+      <mat-card-title style="margin-top: -10px">
+        Authentication
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-form-field style="margin-top: 10px" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <mat-form-field style="margin-top: 10px" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <mat-card-actions>
+        <button (click)="login()" mat-raised-button color="warn" style="padding: 20px;margin: auto;flex: auto">Login</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>
+</body>
+</html>
+

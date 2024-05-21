@@ -1,0 +1,11 @@
+mat-form-field{
+  display: block;
+}
+.login-form{
+  width: 500px;
+  flex: auto;
+  margin: auto;
+  padding: 30px;
+
+
+}
